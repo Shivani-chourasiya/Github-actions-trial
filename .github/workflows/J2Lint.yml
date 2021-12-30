@@ -25,6 +25,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - run: |
+         . ~/ansible2/bin/activate
+         j2lint templates/
+         
          #git clone https://gitlab.aristanetworks.com/ansible-team/jinja2-linter
          #python3 -m venv myenv
          #source myenv/bin/activate
@@ -32,7 +35,6 @@ jobs:
          #pip3 install jinja2
          #python setup.py install
          #cd jinja2-linter
-         . ~/ansible2/bin/activate
-         j2lint templates/
+         
          
          
