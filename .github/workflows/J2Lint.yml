@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths: "**.j2"
+   # paths: "**.j2"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,18 +17,19 @@ jobs:
   # This workflow contains a single job called "build"
   J2LINT:
     # The type of runner that the job will run on
-    #runs-on: ubuntu-20.04
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
+    #runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - run: |
-         . ~/ansible2/bin/activate
+         git clone https://shivani-chourasiya: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@gitlab.aristanetworks.com/ansible-team/jinja2-linter
+         #. ~/ansible2/bin/activate
          j2lint templates/
          
-         #git clone https://gitlab.aristanetworks.com/ansible-team/jinja2-linter
+         
          #python3 -m venv myenv
          #source myenv/bin/activate
          #sudo apt-get install python3-pip
