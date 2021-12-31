@@ -23,6 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
       - name: Install j2lint
         run: |
          git clone https://github.com/aristanetworks/j2lint.git
@@ -32,11 +33,11 @@ jobs:
          pip3 install jinja2
          cd j2lint
          python setup.py install
-            
-      - uses: actions/checkout@v2
        
       - name: Run J2lint
-        run: j2lint templates/
+        run: |
+         pwd
+         j2lint templates/
          
          
          
