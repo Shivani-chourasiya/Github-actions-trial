@@ -33,11 +33,8 @@ jobs:
          pip3 install jinja2
          cd j2lint
          python setup.py install
-       
-      - name: Run J2lint
-        run: |
          pwd
-         j2lint templates/
+         j2lint ../templates/
          
          
          
