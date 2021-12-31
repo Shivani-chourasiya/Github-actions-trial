@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths: "**.j2"
+    #paths: "**.j2"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,8 +23,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - run: |
+      - name: Install j2lint
+        run: |
          git clone https://github.com/aristanetworks/j2lint.git
          python3 -m venv myenv
          source myenv/bin/activate
@@ -32,9 +32,11 @@ jobs:
          pip3 install jinja2
          cd j2lint
          python setup.py install
-         #. ~/ansible2/bin/activate
-         j2lint templates/
-         
+            
+      - uses: actions/checkout@v2
+       
+      - name: Run J2lint
+        run: j2lint templates/
          
          
          
