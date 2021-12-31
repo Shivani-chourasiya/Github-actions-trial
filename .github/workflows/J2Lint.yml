@@ -30,8 +30,8 @@ jobs:
          source myenv/bin/activate
          sudo apt-get install python3-pip
          pip3 install jinja2
-         python setup.py install
          cd j2lint
+         python setup.py install
          #. ~/ansible2/bin/activate
          j2lint templates/
          
