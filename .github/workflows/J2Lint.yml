@@ -36,10 +36,10 @@ jobs:
         run: |
           echo $GITHUB_WORKSPACE
           echo $GITHUB_REPOSITORY
-         # source myenv/bin/activate
-         # cd j2lint
-         # python setup.py install
-          #j2lint ../templates/
+          source myenv/bin/activate
+          cd j2lint
+          python setup.py install
+          j2lint $GITHUB_WORKSPACE/templates/
          
          
          
