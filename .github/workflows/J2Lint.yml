@@ -27,14 +27,14 @@ jobs:
       - name: Install j2lint
         run: |
          git clone https://github.com/aristanetworks/j2lint.git
-         #python3 -m venv myenv
-         #source myenv/bin/activate
+         python3 -m venv myenv
+         source myenv/bin/activate
          sudo apt-get install python3-pip
          pip3 install jinja2
          
       - name: Run J2lint
         run: |
-          #source myenv/bin/activate
+          source myenv/bin/activate
           cd j2lint
           python setup.py install
           j2lint ../templates/
