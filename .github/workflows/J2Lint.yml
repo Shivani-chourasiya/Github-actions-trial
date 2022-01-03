@@ -34,8 +34,6 @@ jobs:
          
       - name: Run J2lint
         run: |
-          echo $GITHUB_WORKSPACE
-          echo $GITHUB_REPOSITORY
           source myenv/bin/activate
           cd j2lint
           python setup.py install
