@@ -26,17 +26,18 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install j2lint
         run: |
-         git clone https://github.com/aristanetworks/j2lint.git
-         python3 -m venv myenv
-         source myenv/bin/activate
-         sudo apt-get install python3-pip
-         pip3 install jinja2
+         pip install git+https://github.com/aristanetworks/j2lint.git
+         #git clone https://github.com/aristanetworks/j2lint.git
+         #python3 -m venv myenv
+         #source myenv/bin/activate
+         #sudo apt-get install python3-pip
+         #pip3 install jinja2
          
       - name: Run J2lint
         run: |
-          source myenv/bin/activate
-          cd j2lint
-          python setup.py install
+          #source myenv/bin/activate
+          #cd j2lint
+          #python setup.py install
           j2lint $GITHUB_WORKSPACE/templates/
          
          
